@@ -47,7 +47,7 @@ void enqueue(queue_ll* q, int value) {
 		return;
 	}
 
-	n->next = q->head->next;
+	n->next = q->head;
 	q->head = n;
 }
 
