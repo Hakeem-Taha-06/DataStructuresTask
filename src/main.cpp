@@ -1,12 +1,13 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 #include "queue.h"
 #include "stack.h"
 #include "linked_list.h"
-
+using namespace std;
 int main(){
-	
-	queue_a* qa = createArrayQueue(256);
+	/*
+		queue_a* qa = createArrayQueue(256);
 	queue_ll* qll = createLLQueue();
 
 	//stack_a* sa = createArrayStack(256);
@@ -28,6 +29,23 @@ int main(){
 	printf("Push any button to exit...");
 
 	getchar();
+	*/
+
+	
+	stack_ll* sll = createLLStack();
+	cout << isEmpty(sll) << endl;
+	push(sll, 27);
+	push(sll, 28);
+	push(sll, 29);
+	push(sll, 30);
+	display(sll);
+	pop(sll);
+	pop(sll);
+	display(sll);
+	cout << peek(sll) << endl;
+	cout << isEmpty(sll) << endl;
+	
+	
 
 	return 0;
 }

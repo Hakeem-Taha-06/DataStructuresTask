@@ -32,3 +32,5 @@ bool isEmpty(stack_ll* s);
 int peek(stack_a* s);
 
 int peek(stack_ll* s);
+
+void display(stack_ll* s);
