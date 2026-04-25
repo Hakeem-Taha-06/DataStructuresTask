@@ -1,15 +1,13 @@
 #include "linked_list.h"
 
 linkedList* createLinkedList() {
-	linkedList* l = (linkedList*)malloc(sizeof(linkedList));
+	linkedList* l = new linkedList(NULL, NULL, 0);
 
 	if (l == NULL) {
 		printf("mem allocation failed");
 		exit(-1);
 	}
-	l->head = NULL;
-	l->rear = NULL;
-	l->size = 0;
+	
 	return l;
 }
 
@@ -91,7 +89,7 @@ void deleteValue(linkedList* l, int index) {
 			}
 
 			printf("deleted element at index %i of value %i\n", i, curr->data);
-			free(curr);
+			delete curr;
 			return;
 		}
 

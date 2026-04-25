@@ -25,7 +25,6 @@ int main(){
 	for (int i = 10; i >= 6; --i) insertAtEnd(ll, i);
 	display(ll);
 
-
 	printf("Push any button to exit...");
 
 	getchar();

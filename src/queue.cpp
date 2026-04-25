@@ -1,7 +1,7 @@
 #include "queue.h"
 
 queue_ll* createLLQueue() {
-	queue_ll* q = (queue_ll*)malloc(sizeof(queue_ll));
+	queue_ll* q = new queue_ll(NULL, NULL);
 
 	if (q == NULL) {
 		printf("mem allocation failed");
@@ -14,16 +14,14 @@ queue_ll* createLLQueue() {
 }
 
 queue_a* createArrayQueue(int size) {
-	queue_a* q = (queue_a*)malloc(sizeof(queue_a));
+	queue_a* q = new queue_a(NULL, size, 0);
 
 	if (q == NULL) {
 		printf("mem allocation failed");
 		exit(-1);
 	}
 
-	q->data = (int*)calloc(size, sizeof(int)); // == new int[size];
-	q->size = size;
-	q->count = 0;
+	q->data = new int[size]; // == new int[size];
 
 	return q;
 }
@@ -62,7 +60,7 @@ int dequeue(queue_ll* q) {
 	int value = q->head->data;
 	node* temp = q->head->next;
 
-	free(q->head);
+	delete q->head;
 	q->head = temp;
 
 	return value;
