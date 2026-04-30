@@ -15,7 +15,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "include/*.h")
 
 # Add source to this project's executable.
-add_executable (Assignment ${SOURCES} ${HEADERS})
+add_executable (Assignment ${SOURCES} ${HEADERS} )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Assignment PROPERTY CXX_STANDARD 20)
