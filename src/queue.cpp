@@ -1,6 +1,7 @@
 #include "queue.h"
+#include "iostream"
 
-queue_ll* createLLQueue() {
+/*queu e_ll* createLLQueue() {
 	queue_ll* q = new queue_ll(NULL, NULL);
 
 	if (q == NULL) {
@@ -9,19 +10,6 @@ queue_ll* createLLQueue() {
 	}
 	q->head = NULL;
 	q->tail = NULL;
-
-	return q;
-}
-
-queue_a* createArrayQueue(int size) {
-	queue_a* q = new queue_a(NULL, size, 0);
-
-	if (q == NULL) {
-		printf("mem allocation failed");
-		exit(-1);
-	}
-
-	q->data = new int[size]; // == new int[size];
 
 	return q;
 }
@@ -73,4 +61,73 @@ void display(queue_ll* q) {
 		else { printf("%i", n->data); }
 	}
 	printf("}\n");
+}*/
+
+// ================== Queue Array ========================
+
+QueueArr::QueueArr() : size(10), _front(-1), rear(-1) { arr = new int[size]; }
+
+
+QueueArr::QueueArr(int s) : size(s), _front(-1), rear(-1) { arr = new int[size]; }
+
+
+QueueArr::~QueueArr() { delete[] arr; }
+
+
+bool QueueArr::isEmpty() { return _front == -1; }
+
+
+bool QueueArr::isFull() { return (rear + 1) % size == _front; }
+
+
+int QueueArr::front() {
+	if (isEmpty()) {
+		std::cout << "The queue is Empty, No front element.\n";
+		return NULL;
+	}
+	return arr[_front];
+}
+
+
+int QueueArr::dequeue() {
+	if (isEmpty()) {
+		std::cout << "The queue is Empty!, No elements to dequeue.\n";
+		return NULL;
+	}
+	int data = arr[_front];
+
+	if (_front == rear) {
+		_front = -1;
+		rear = -1;
+	}
+	else
+		_front = (_front + 1) % size;
+
+	return data;
+}
+
+
+void QueueArr::enqueue(int value) {
+	if (isFull()) {
+		std::cout << "The Queue is Full, can not enqueue.\n";
+		return;
+	}
+	if (_front == -1) _front++;
+
+	rear = (rear + 1) % size;
+	arr[rear] = value;
+}
+
+
+void QueueArr::print() {
+	std::cout << "Front <--------------- Rear\n";
+	std::cout << "   [";
+	if (isEmpty()) std::cout << "]\n";
+	else{
+		for (int i = _front; ; i = (i+1) % size) {
+			std::cout << this->arr[i] << ", ";
+			if (i == rear) break;
+		}
+		std::cout << "\b\b]\n";	// \b\b are to adjust the printing format of the last element
+	}
 }
