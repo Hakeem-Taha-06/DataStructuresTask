@@ -35,3 +35,5 @@ int peek(stack_a* s);
 int peek(stack_ll* s);
 
 void display(stack_ll* s);
+
+void display(stack_a* s);

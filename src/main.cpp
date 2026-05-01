@@ -1,5 +1,5 @@
 ﻿#include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>D
 #include <iostream>
 #include "queue.h"
 #include "stack.h"
@@ -108,6 +108,51 @@ int main(){
 	// Try pop on empty
 	cout << "Pop on empty: " << pop(s) << endl;
 	*/
+
+	//Stack Array Test------------------------------------------------------------
+	//cout << "=== Test 1: Create & display empty stack ===" << endl;
+	//stack_a* s = createArrayStack(5);
+	//display(s);                              // Expected: []
+	//cout << "isEmpty: " << (isEmpty(s) ? "true" : "false") << endl; // Expected: true
+
+	//cout << "\n=== Test 2: Push elements ===" << endl;
+	//push(s, 10);
+	//push(s, 20);
+	//push(s, 30);
+	//display(s);                              // Expected: [ 30 20 10 ]
+	//cout << "isEmpty: " << (isEmpty(s) ? "true" : "false") << endl; // Expected: false
+
+	//cout << "\n=== Test 3: Peek top ===" << endl;
+	//cout << "Top: " << peek(s) << endl;      // Expected: 30
+
+	//cout << "\n=== Test 4: Pop elements ===" << endl;
+	//cout << "Popped: " << pop(s) << endl;    // Expected: 30
+	//cout << "Popped: " << pop(s) << endl;    // Expected: 20
+	//display(s);                              // Expected: [ 10 ]
+
+	//cout << "\n=== Test 5: Fill to capacity ===" << endl;
+	//push(s, 40);
+	//push(s, 50);
+	//push(s, 60);
+	//push(s, 70);
+	//display(s);                              // Expected: [ 70 60 50 40 10 ]
+	//push(s, 80);                             // Expected: overflow message (stack is full)
+
+	//cout << "\n=== Test 6: Pop until empty ===" << endl;
+	//while (!isEmpty(s)) cout << "Popped: " << pop(s) << endl;
+	//display(s);                              // Expected: []
+
+	//cout << "\n=== Test 7: Underflow - pop & peek on empty ===" << endl;
+	//pop(s);                                  // Expected: underflow message
+	//peek(s);                                 // Expected: empty message
+
+	//cout << "\n=== Test 8: Invalid creation (size <= 0) ===" << endl;
+	//stack_a* bad = createArrayStack(-1);     // Expected: error message, returns NULL
+	//(void)bad;
+
+	//cout << "\n=== Test 9: Delete stack ===" << endl;            
+	//display(s);                              // Expected: "Stack is NULL"
+
 
 	return 0;
 }
