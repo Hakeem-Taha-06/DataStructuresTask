@@ -9,12 +9,8 @@ int main(){
 	/*
 	queue_ll* qll = createLLQueue();
 
-	//stack_a* sa = createArrayStack(256);
-	//stack_ll* sll = createLLStack();
-
-	linkedList* ll = createLinkedList();
-
 	for(int i = 1; i <= 10; ++i) enqueue(qll, 10*i);
+	
 	display(qll);
 	dequeue(qll);
 	dequeue(qll);
@@ -39,6 +35,25 @@ int main(){
 	cout << peek(sll) << endl;
 	cout << isEmpty(sll) << endl;
 	*/
+
+	//Queue Linked List -------------------------------------------------------
+	queue_ll* qll = createLLQueue();
+
+	for (int i = 1; i <= 10; ++i) enqueue(qll, 10 * i);
+	display(qll); //should be {100, 90, 80, 70, 60, 50, 40, 30, 20, 10}
+
+	cout << "dequeued " << dequeue(qll) << endl;
+	display(qll); //should be {90, 80, 70, 60, 50, 40, 30, 20, 10}
+
+	enqueue(qll, 100);
+	for (int i = 1; i <= 10; ++i) { 
+		cout << "dequeued " << dequeue(qll) << endl;
+	}
+
+	dequeue(qll); //should say that queue is empty
+
+	deleteQueue(&qll); //should delete queue and set qll to NULL
+	display(qll); //should say that queue is NULL
 	
 	//Queue Array--------------------------------------------------------------
 	/*

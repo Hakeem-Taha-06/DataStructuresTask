@@ -12,12 +12,12 @@ linkedList* createLinkedList() {
 }
 
 bool isEmpty(linkedList* l) {
-	if (l == NULL) { printf("list is NULL"); return false; }//make sure we don't dereference a null ptr
+	if (l == NULL) { printf("list is NULL\n"); return false; }//make sure we don't dereference a null ptr
 	return l->head == NULL; //if head is null then the list is empty
 }
 
 void insertAtHead(linkedList* l, int value) {
-	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
+	if (l == NULL) { printf("list is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	node* n= createNode(value);
 
@@ -35,7 +35,7 @@ void insertAtHead(linkedList* l, int value) {
 }
 
 void insertAtEnd(linkedList* l, int value) {
-	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
+	if (l == NULL) { printf("list is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	node* n = createNode(value);
 
@@ -54,7 +54,7 @@ void insertAtEnd(linkedList* l, int value) {
 }
 
 void deleteValue(linkedList* l, int index) {
-	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
+	if (l == NULL) { printf("list is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	//create two pointers to track two nodes at the same time
 	node* curr = l->head; //the node to be deleted
@@ -91,7 +91,7 @@ void deleteValue(linkedList* l, int index) {
 }
 
 void display(linkedList* l) {
-	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
+	if (l == NULL) { printf("list is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	printf("{");
 	for (node* n = l->head; n != NULL;n = n->next)
@@ -105,7 +105,7 @@ void display(linkedList* l) {
 
 //we pass a copy of the pointer's address (reference) so we can set it to NULL
 void deleteLL(linkedList** l) {
-	if (l == NULL) { printf("l is NULL"); return; }//make sure we don't dereference a null ptr
+	if (l == NULL) { printf("l is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	node* n = (*l)->head; //start from the first node
 	node* temp = n;

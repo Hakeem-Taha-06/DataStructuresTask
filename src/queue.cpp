@@ -1,5 +1,4 @@
 #include "queue.h"
-#include "iostream"
 
 queue_ll* createLLQueue() {
 	queue_ll* q = new queue_ll(NULL, NULL); //allocate new queue_ll, initialize its values
@@ -13,17 +12,17 @@ queue_ll* createLLQueue() {
 }
 
 int peek(queue_ll* q) {
-	if (q == NULL) { printf("queue is NULL"); return -1; }//make sure we don't dereference a null ptr
+	if (q == NULL) { printf("queue is NULL\n"); return -1; }//make sure we don't dereference a null ptr
 	return q->head->data; //return the first node's data
 }
 
 bool isEmpty(queue_ll* q) {
-	if (q == NULL) { printf("queue is NULL"); return true; }//make sure we don't dereference a null ptr
+	if (q == NULL) { printf("queue is NULL\n"); return true; }//make sure we don't dereference a null ptr
 	return q->head == NULL; //if head is null then queue is empty
 }
 
 void enqueue(queue_ll* q, int value) {
-	if (q == NULL) { printf("queue is NULL"); return; }//make sure we don't dereference a null ptr
+	if (q == NULL) { printf("queue is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	node* n = createNode(value);
 
@@ -40,10 +39,10 @@ void enqueue(queue_ll* q, int value) {
 }
 
 int dequeue(queue_ll* q) {
-	if (q == NULL) { printf("queue is NULL"); return -1; }//make sure we don't dereference a null ptr
+	if (q == NULL) { printf("queue is NULL\n"); return -1; }//make sure we don't dereference a null ptr
 
 	if (isEmpty(q)) {
-		printf("queue is empty");
+		printf("queue is empty\n");
 		return -1;
 	}
 
@@ -57,7 +56,7 @@ int dequeue(queue_ll* q) {
 }
 
 void display(queue_ll* q) {
-	if (q == NULL) { printf("queue is NULL"); return; }//make sure we don't dereference a null ptr
+	if (q == NULL) { printf("queue is NULL\n"); return; }//make sure we don't dereference a null ptr
 	
 	printf("{");
 	for (node* n = q->head; n != NULL; n = n->next) {
@@ -69,7 +68,7 @@ void display(queue_ll* q) {
 
 //we pass a copy of the pointer's address (reference) so we can set it to NULL
 void deleteQueue(queue_ll** q) {
-	if (q == NULL) { printf("queue is NULL"); return; }//make sure we don't dereference a null ptr
+	if (q == NULL) { printf("queue is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	node* n = (*q)->head; //start from the first node
 	node* temp = n;
@@ -83,6 +82,8 @@ void deleteQueue(queue_ll** q) {
 		delete temp; //delete the node before it
 		temp = n;    //update temp to sync with n
 	}
+
+	std::cout << "queue deleted" << std::endl;
 }
 
 // ================== Queue Array ========================
