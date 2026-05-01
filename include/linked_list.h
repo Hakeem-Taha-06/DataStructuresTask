@@ -21,3 +21,5 @@ void insertAtEnd(linkedList* l, int value);
 void deleteValue(linkedList* l, int value);
 
 void display(linkedList* l);
+
+void deleteLL(linkedList** l);

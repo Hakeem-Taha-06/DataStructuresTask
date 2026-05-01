@@ -112,3 +112,19 @@ void display(linkedList* l) {
 	printf("}\n");
 	
 }
+
+void deleteLL(linkedList** l) {
+	if (l == NULL) { printf("l is NULL"); return; }
+
+	node* n = (*l)->head; //start from the first node
+	node* temp = n;
+
+	delete *l;
+	*l = NULL;
+
+	while (n != NULL) {
+		n = n->next;
+		delete temp;
+		temp = n;
+	}
+}
