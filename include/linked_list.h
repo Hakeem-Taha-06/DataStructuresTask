@@ -12,7 +12,7 @@ struct linkedList {
 
 linkedList* createLinkedList();
 
-bool isListEmpty(linkedList* l);
+bool isEmpty(linkedList* l);
 
 void insertAtHead(linkedList* l, int value); 
 

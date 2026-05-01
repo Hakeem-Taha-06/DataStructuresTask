@@ -1,9 +1,9 @@
 #include "linked_list.h"
 
 linkedList* createLinkedList() {
-	linkedList* l = new linkedList(NULL, NULL, 0);
+	linkedList* l = new linkedList(NULL, NULL, 0); //allocate mem for linked list, and initialize values
 
-	if (l == NULL) {
+	if (l == NULL) { //if allocation fails, exit
 		printf("mem allocation failed");
 		exit(-1);
 	}
@@ -11,90 +11,78 @@ linkedList* createLinkedList() {
 	return l;
 }
 
-bool isListEmpty(linkedList* l) {
-	if (l == NULL) { printf("list is NULL"); return false; }
-	return l->head == NULL;
+bool isEmpty(linkedList* l) {
+	if (l == NULL) { printf("list is NULL"); return false; }//make sure we don't dereference a null ptr
+	return l->head == NULL; //if head is null then the list is empty
 }
 
 void insertAtHead(linkedList* l, int value) {
-	if (l == NULL) { printf("list is NULL"); return; }
+	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
 
 	node* n= createNode(value);
 
-	if (isListEmpty(l)) {
+	if (isEmpty(l)) { //special case: empty list, the rear will also point at the inserted node
 		l->rear = n;
 	}
 
+	//general case: the new node points at whatever the head was pointing at
 	n->next = l->head;
+
+	//then, the head points at the new node
 	l->head = n;
 
 	l->size += 1;
 }
 
 void insertAtEnd(linkedList* l, int value) {
-	if (l == NULL) { printf("list is NULL"); return; }
+	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
 
 	node* n = createNode(value);
 
-	if (isListEmpty(l)) {
+	//in case list is empty, the head will also point at the new node
+	if (isEmpty(l)) {
 		l->head = n;
-	}
+	}//if it's not empty then we can dereference l->rear and make it point at the new inserted node
 	else {
 		l->rear->next = n;
 	}
 
+
+	//in both cases, the rear will point at the new inserted node in the end
 	l->rear = n;
 	l->size += 1;
 }
 
 void deleteValue(linkedList* l, int index) {
-	if (l == NULL) { printf("list is NULL"); return; }
-	
-	//hacky implementation: using multiple declarations in a for loop via an anonymous struct
-	/*for (struct { node* curr; node* prev; int i; } cell = { l->head, NULL, 0 }; 
-		 cell.curr != NULL && cell.i < l->size; 
-		 cell.prev = cell.curr ,cell.curr = cell.curr->next, cell.i += 1) {
-		if (cell.i == index) {
-			if (cell.prev == NULL) {
-				l->head = cell.curr->next;
-			}
-			else {
-				cell.prev->next = cell.curr->next;
-			}
+	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
 
-			if (cell.curr == l->rear) {
-				l->rear = cell.prev;
-			}
+	//create two pointers to track two nodes at the same time
+	node* curr = l->head; //the node to be deleted
+	node* prev = NULL; //the node that needs to point at the next of curr after deleting
 
-			printf("deleted element at index %i of value %i\n", cell.i, cell.curr->data);
-			free(cell.curr);
-			return;
-		}
-	}*/
 
-	//regular implementation
-	node* curr = l->head;
-	node* prev = NULL;
+	//loop until we reach the index to delete
 	for (int i = 0; curr != NULL; ++i) {
 		if (i  == index) {
-			if (prev == NULL) {
-				l->head = curr->next;
+			if (prev == NULL) { //if it's the first node
+				l->head = curr->next; //the head will point at whatever the curr node was pointing at
 			}
-			else {
-				prev->next = curr->next;
+			else {//if it's in the middle
+				prev->next = curr->next; //then prev != NULL, and we can dereference it and set its next to whatever curr was pointing at
 			}
 
-			if (curr == l->rear) {
-				l->rear = prev;
+			if (curr == l->rear) { //if it's the last node
+				l->rear = prev; //the we can make the rear point at the prev node
 			}
 
 			printf("deleted element at index %i of value %i\n", i, curr->data);
-			delete curr;
+			delete curr; //in all cases we delete the curr node
+			curr = NULL;
 			return;
 		}
 
-		prev = curr;
-		curr = curr->next;
+		prev = curr; //prev moves one step forward
+		curr = curr->next; //curr moves one step forward, now prev is directly behind it
 	}
 
 
@@ -103,28 +91,32 @@ void deleteValue(linkedList* l, int index) {
 }
 
 void display(linkedList* l) {
+	if (l == NULL) { printf("list is NULL"); return; }//make sure we don't dereference a null ptr
+
 	printf("{");
 	for (node* n = l->head; n != NULL;n = n->next)
 	{
-		if (n->next != NULL) printf("%i, ", n->data); 
-		else printf("%i", n->data);
+		if (n->next != NULL) printf("%i, ", n->data); //if we are not at the last element, we can print a ", " 
+		else printf("%i", n->data); //at the end, no ", " is needed
 	}
 	printf("}\n");
 	
 }
 
+//we pass a copy of the pointer's address (reference) so we can set it to NULL
 void deleteLL(linkedList** l) {
-	if (l == NULL) { printf("l is NULL"); return; }
+	if (l == NULL) { printf("l is NULL"); return; }//make sure we don't dereference a null ptr
 
 	node* n = (*l)->head; //start from the first node
 	node* temp = n;
 
-	delete *l;
-	*l = NULL;
+	delete *l; //we delete the pointer itself 
+	*l = NULL; //and set its value to NULL
 
+	//loop until the end
 	while (n != NULL) {
-		n = n->next;
-		delete temp;
-		temp = n;
+		n = n->next; //move n
+		delete temp; //delete the node before it
+		temp = n;    //update temp to sync with n
 	}
 }

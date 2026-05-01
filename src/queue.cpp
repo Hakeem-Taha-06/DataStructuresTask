@@ -4,7 +4,7 @@
 queue_ll* createLLQueue() {
 	queue_ll* q = new queue_ll(NULL, NULL);
 
-	if (q == NULL) {
+	if (q == NULL) { //if allocation fails, exit
 		printf("mem allocation failed");
 		exit(-1);
 	}
