@@ -1,15 +1,13 @@
 #include "queue.h"
 #include "iostream"
 
-/*queu e_ll* createLLQueue() {
+queue_ll* createLLQueue() {
 	queue_ll* q = new queue_ll(NULL, NULL);
 
 	if (q == NULL) {
 		printf("mem allocation failed");
 		exit(-1);
 	}
-	q->head = NULL;
-	q->tail = NULL;
 
 	return q;
 }
@@ -61,7 +59,23 @@ void display(queue_ll* q) {
 		else { printf("%i", n->data); }
 	}
 	printf("}\n");
-}*/
+}
+
+void deleteQueue(queue_ll** q) {
+	if (*q == NULL) { return; } //make sure we are not dereferencing a null pointer
+
+	node* n = (*q)->head; //start from the first node
+	node* temp = n;
+
+	delete *q;
+	*q = NULL;
+
+	while (n != NULL) {
+		n = n->next;
+		delete temp;
+		temp = n;
+	}
+}
 
 // ================== Queue Array ========================
 

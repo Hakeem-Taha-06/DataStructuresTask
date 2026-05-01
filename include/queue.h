@@ -21,6 +21,8 @@ int peek(queue_ll* q);
 
 void display(queue_ll* q);
 
+void deleteQueue(queue_ll** q);
+
 // =================== Queue Array part ==================
 class QueueArr {
 private:
