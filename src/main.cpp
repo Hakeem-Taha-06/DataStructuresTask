@@ -40,77 +40,79 @@ int main(){
 	cout << isEmpty(sll) << endl;
 	*/
 	
-	//================== Queue array test ==============
-	QueueArr q_arr;
-	cout << "============= Queue Array ================\n";
-	q_arr.print();
-	cout << q_arr.front() << "\n";
+	//Queue Array--------------------------------------------------------------
+	/*
+	QueueArr q;
 
-	for (int i = 0; i < 12; i++)
-		q_arr.enqueue(i);
+	// Initially empty
+	cout << "Initial queue: ";
+	q.print();
 
-	q_arr.print();
+	// Enqueue elements
+	q.enqueue(10);
+	q.enqueue(20);
+	q.enqueue(30);
 
-	q_arr.dequeue();
-	q_arr.dequeue();
-	q_arr.dequeue();
-	q_arr.dequeue();
+	cout << "After enqueue: ";
+	q.print();   // Expected: 10 20 30
 
-	q_arr.print();
+	// Front element
+	cout << "Front: " << q.front() << endl; // Expected: 10
 
+	// Dequeue
+	cout << "Dequeued: " << q.dequeue() << endl; // Expected: 10
 
-			// AI-generated tests for circular queue array
+	cout << "After dequeue: ";
+	q.print();   // Expected: 20 30
+
+	// Remove all
+	q.dequeue();
+	q.dequeue();
+
+	cout << "After removing all: ";
+	q.print();   // Expected: empty / error
+
+	// Try dequeue on empty
+	cout << "Dequeue on empty: " << q.dequeue() << endl;
+	*/
 	
-	// 1. Test Parameterized Constructor (Size 5)
-	std::cout << "\n\n\n[TEST 1] Creating Queue of size 5...\n";
-	QueueArr myQueue(5);
-	myQueue.print();
-	std::cout << "\n";
-
-	// 2. Test Enqueue and Wrap-Around readiness
-	std::cout << "[TEST 2] Enqueuing 5 items (Filling the queue)...\n";
-	for (int i = 10; i <= 50; i += 10) {
-		myQueue.enqueue(i);
-	}
-	myQueue.print();
-	std::cout << "\n";
-
-	// 3. Test isFull restriction
-	std::cout << "[TEST 3] Attempting to overfill (Should show error)...\n";
-	myQueue.enqueue(60);
-	std::cout << "\n";
-
-	// 4. Test Dequeue (Making room for wrap-around)
-	std::cout << "[TEST 4] Dequeuing 2 items...\n";
-	std::cout << "Removed: " << myQueue.dequeue() << "\n";
-	std::cout << "Removed: " << myQueue.dequeue() << "\n";
-	myQueue.print();
-	std::cout << "\n";
-
-	// 5. Test Circular Wrap-Around
-	std::cout << "[TEST 5] Enqueuing 2 new items to force wrap-around...\n";
-	myQueue.enqueue(99);
-	myQueue.enqueue(88);
-	myQueue.print(); // Visually, the print function should handle this seamlessly
-	std::cout << "\n";
-
-	// 6. Test Emptying the Queue completely
-	std::cout << "[TEST 6] Emptying the queue completely...\n";
-	while (!myQueue.isEmpty()) {
-		std::cout << "Removed: " << myQueue.dequeue() << "\n";
-	}
-	myQueue.print();
-	std::cout << "\n";
-
-	// 7. Test Recovery (Can we use it again after it was emptied?)
-	std::cout << "[TEST 7] Adding one item to empty queue...\n";
-	myQueue.enqueue(777);
-	myQueue.print();
 
 
-	printf("Push any button to exit...");
+	//Stack Linkedlist Test------------------------------------------------------------
+	/*
+	stack_ll* s = createLLStack();
 
-	getchar();
+	// Initially empty
+	cout << "Initial stack: ";
+	display(s);
+
+	// Push elements
+	push(s, 10);
+	push(s, 20);
+	push(s, 30);
+
+	cout << "After pushes: ";
+	display(s);   // Expected: 30 20 10
+
+	// Peek top
+	cout << "Top element: " << peek(s) << endl; // Expected: 30
+
+	// Pop element
+	cout << "Popped: " << pop(s) << endl; // Expected: 30
+
+	cout << "After pop: ";
+	display(s);   // Expected: 20 10
+
+	// Pop all
+	pop(s);
+	pop(s);
+
+	cout << "After removing all: ";
+	display(s);   // Expected: Invalid
+
+	// Try pop on empty
+	cout << "Pop on empty: " << pop(s) << endl;
+	*/
 
 	return 0;
 }
