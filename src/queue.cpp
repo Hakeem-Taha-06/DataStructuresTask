@@ -1,3 +1,4 @@
+#include <optional>
 #include "queue.h"
 
 queue_ll* createLLQueue() {
@@ -86,36 +87,30 @@ void deleteQueue(queue_ll** q) {
 	std::cout << "queue deleted" << std::endl;
 }
 
-// ================== Queue Array ========================
+// ===================== Queue Array =======================
 
+	// constructors
 QueueArr::QueueArr() : size(10), _front(-1), rear(-1) { arr = new int[size]; }
 
-
 QueueArr::QueueArr(int s) : size(s), _front(-1), rear(-1) { arr = new int[size]; }
-
 
 QueueArr::~QueueArr() { delete[] arr; }
 
 
+	// check helpers
 bool QueueArr::isEmpty() { return _front == -1; }
-
 
 bool QueueArr::isFull() { return (rear + 1) % size == _front; }
 
 
-int QueueArr::front() {
-	if (isEmpty()) {
-		std::cout << "The queue is Empty, No front element.\n";
-		return NULL;
-	}
-	return arr[_front];
-}
+	// main queue logic
 
 
+/// dequeue the queue with returning the dequeued value, returns INT_MIN when the queue is empty
 int QueueArr::dequeue() {
 	if (isEmpty()) {
 		std::cout << "The queue is Empty!, No elements to dequeue.\n";
-		return NULL;
+		return INT_MIN;		// return INT_MIN to inform the user that the queue is Empty
 	}
 	int data = arr[_front];
 
@@ -129,7 +124,7 @@ int QueueArr::dequeue() {
 	return data;
 }
 
-
+/// Takes an element and puts it at the rear of the queue, if the queue is not full
 void QueueArr::enqueue(int value) {
 	if (isFull()) {
 		std::cout << "The Queue is Full, can not enqueue.\n";
@@ -141,9 +136,37 @@ void QueueArr::enqueue(int value) {
 	arr[rear] = value;
 }
 
+/// Empty the whole array
+void QueueArr::clear() { _front = -1; rear = -1; }
 
+
+/// Returns number of elements in the queue
+int QueueArr::length() {
+	if (_front == rear) return 0;
+
+	return rear>_front ? rear - _front + 1: size - (_front - rear) - 1;
+}
+
+/// Returns the Total capacity of the queue
+int QueueArr::capacity() { return size; }
+
+/// Returns the number of the available spaces in the queue
+int QueueArr::available() { return capacity() - length(); }
+
+
+	// Visualizing
+
+/// Retrieving the front element without changing the queue
+int QueueArr::front() {
+	if (isEmpty()) {
+		std::cout << "The queue is Empty, No front element.\n";
+		return NULL;
+	}
+	return arr[_front];
+}
+
+/// Displays the whole queue
 void QueueArr::print() {
-	std::cout << "Front <--------------- Rear\n";
 	std::cout << "   [";
 	if (isEmpty()) std::cout << "]\n";
 	else{
