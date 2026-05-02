@@ -36,41 +36,79 @@ int main(){
 	*/
 
 	//Queue Array--------------------------------------------------------------
-	/*
+
 	QueueArr q;
 
 	// Initially empty
 	cout << "Initial queue: ";
 	q.print();
+	cout << "Capacity: " << q.capacity() << '\n';
+	cout << "Available space: " << q.available() << '\n';
+	cout << "length: " << q.length() << "\n===============\n\n";
 
 	// Enqueue elements
-	q.enqueue(10);
-	q.enqueue(20);
-	q.enqueue(30);
+	for (int i = 1; i <= q.capacity(); i++)
+		q.enqueue(i);
 
-	cout << "After enqueue: ";
-	q.print();   // Expected: 10 20 30
+	cout << "After enqueue (1 then 2 ...... then 10): ";
+	q.print();
+	cout << "Capacity: " << q.capacity() << '\n';
+	cout << "Available space: " << q.available() << '\n';
+	cout << "length: " << q.length() << "\n===============\n\n";
 
 	// Front element
-	cout << "Front: " << q.front() << endl; // Expected: 10
+	cout << "Front: " << q.front() << "\nthe queue after front() : ";
+	q.print();
+	cout << "Available space: " << q.available() << '\n';
 
 	// Dequeue
-	cout << "Dequeued: " << q.dequeue() << endl; // Expected: 10
+	cout << "Dequeued: " << q.dequeue() << '\n';
 
 	cout << "After dequeue: ";
-	q.print();   // Expected: 20 30
+	q.print();
+	cout << "Capacity: " << q.capacity() << '\n';
+	cout << "Available space: " << q.available() << '\n';
+	cout << "length: " << q.length() << "\n\n===============\n";
 
-	// Remove all
+	// dequeue two elemnets
 	q.dequeue();
 	q.dequeue();
 
-	cout << "After removing all: ";
-	q.print();   // Expected: empty / error
+	cout << "After two dequeue: ";
+	q.print();
+	cout << "Capacity: " << q.capacity() << '\n';
+	cout << "Available space: " << q.available() << '\n';
+	cout << "length: " << q.length() << "\n\n===============\n";
+
+	// clearing the queue
+	q.clear();
 
 	// Try dequeue on empty
-	cout << "Dequeue on empty: " << q.dequeue() << endl;
-	*/
+	cout << "Dequeue on empty: " << q.dequeue() << '\n';
+	q.print();
+	cout << "Available space: " << q.available() << '\n';
+	cout << "Capacity: " << q.capacity() << '\n';
+	cout << "length: " << q.length() << "\n\n===============\n";
 	
+
+	// making a queue of given size
+	cout << " --------------- testing a queue of given size --------------\n";
+	QueueArr q2(3);
+
+	// Initially empty
+	cout << "Initial queue: ";
+	q2.print();
+	cout << "Capacity: " << q2.capacity() << '\n';
+	cout << "Available space: " << q2.available() << '\n';
+	cout << "length: " << q2.length() << "\n===============\n\n";
+
+	// enqueing
+	q2.enqueue(10); q2.enqueue(20); q2.enqueue(30); q2.enqueue(40);
+	cout << "queue after enqueing (10, 20, 30, 40): ";
+	q2.print();
+	cout << "Available space: " << q2.available() << '\n';
+	cout << "Capacity: " << q2.capacity() << '\n';
+	cout << "length: " << q2.length() << "\n===============\n\n";
 
 
 	//Stack Linkedlist Test------------------------------------------------------------
