@@ -1,4 +1,3 @@
-#include <optional>
 #include "queue.h"
 
 queue_ll* createLLQueue() {

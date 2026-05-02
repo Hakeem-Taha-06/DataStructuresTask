@@ -1,9 +1,10 @@
 ﻿#include <stdio.h>
-#include <stdlib.h>D
+#include <stdlib.h>
 #include <iostream>
 #include "queue.h"
 #include "stack.h"
 #include "linked_list.h"
+
 using namespace std;
 int main(){
 	//Queue Linked List -------------------------------------------------------
@@ -36,7 +37,7 @@ int main(){
 	*/
 
 	//Queue Array--------------------------------------------------------------
-
+	/*
 	QueueArr q;
 
 	// Initially empty
@@ -109,7 +110,7 @@ int main(){
 	cout << "Available space: " << q2.available() << '\n';
 	cout << "Capacity: " << q2.capacity() << '\n';
 	cout << "length: " << q2.length() << "\n===============\n\n";
-
+	*/
 
 	//Stack Linkedlist Test------------------------------------------------------------
 	/*
