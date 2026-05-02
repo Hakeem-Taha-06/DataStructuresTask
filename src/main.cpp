@@ -36,6 +36,7 @@ int main(){
 	display(qll); //should say that queue is NULL
 	*/
 
+
 	//Queue Array--------------------------------------------------------------
 	/*
 	QueueArr q;
@@ -83,6 +84,9 @@ int main(){
 
 	// clearing the queue
 	q.clear();
+	cout << "clear() is called\n";
+	cout << "the queue after clear(): ";
+	q.print();
 
 	// Try dequeue on empty
 	cout << "Dequeue on empty: " << q.dequeue() << '\n';
@@ -110,7 +114,21 @@ int main(){
 	cout << "Available space: " << q2.available() << '\n';
 	cout << "Capacity: " << q2.capacity() << '\n';
 	cout << "length: " << q2.length() << "\n===============\n\n";
+
+	// queue of one element
+	q2.clear();
+	cout << "clear() is called: the queue is empty\n";
+	q2.enqueue(10);
+	cout << "queue after enqueing (10): ";
+	q2.print();
+	cout << "Available space: " << q2.available() << '\n';
+	cout << "Capacity: " << q2.capacity() << '\n';
+	cout << "length: " << q2.length() << "\n===============\n\n";
+	
+	//q2 = q;						// give error and exit the app as the two queues sizes are different
+	//q2.print();
 	*/
+
 
 	//Stack Linkedlist Test------------------------------------------------------------
 	/*

@@ -95,11 +95,46 @@ QueueArr::QueueArr(int s) : size(s), _front(-1), rear(-1) { arr = new int[size];
 
 QueueArr::~QueueArr() { delete[] arr; }
 
+	// deep copying functions
+	// 
+// called when doing queueArr q2 = q
+QueueArr::QueueArr(const QueueArr& other) : size(other.size) {
+	if (this != &other) {							// To avoid self copying
+		_front = other._front;
+		rear = other.rear;
+
+		// Allocating completely new array when copying
+		arr = new int[size];
+
+		for (int i = 0; i < size; i++) {
+			arr[i] = other.arr[i];
+		}
+	}
+}
+
+// called when doing q2=q1
+QueueArr& QueueArr::operator=(const QueueArr& other) {
+	if (this == &other) return *this;
+	if (this->size != other.size) {
+		std::cout << "\n[!] ERROR: Assignment failed. Size mismatch! Cannot assign two queues of different sizes" << std::endl;
+		std::cout << "Target queue size: " << this->size << ", original queue size: " << other.size << std::endl;
+		std::exit(-1);
+	}
+
+	_front = other._front;
+	rear = other.rear;
+
+	for (int i = 0; i < size; i++) {
+		arr[i] = other.arr[i];
+	}
+
+	return *this;
+}
 
 	// check helpers
-bool QueueArr::isEmpty() { return _front == -1; }
+bool QueueArr::isEmpty() const { return _front == -1; }
 
-bool QueueArr::isFull() { return (rear + 1) % size == _front; }
+bool QueueArr::isFull() const { return (rear + 1) % size == _front; }
 
 
 	// main queue logic
@@ -140,32 +175,32 @@ void QueueArr::clear() { _front = -1; rear = -1; }
 
 
 /// Returns number of elements in the queue
-int QueueArr::length() {
-	if (_front == rear) return 0;
+int QueueArr::length() const {
+	if (isEmpty()) return 0;
 
-	return rear>_front ? rear - _front + 1: size - (_front - rear) - 1;
+	return rear>=_front ? rear - _front + 1: size - (_front - rear -1);
 }
 
 /// Returns the Total capacity of the queue
-int QueueArr::capacity() { return size; }
+int QueueArr::capacity() const { return size; }
 
 /// Returns the number of the available spaces in the queue
-int QueueArr::available() { return capacity() - length(); }
+int QueueArr::available() const { return capacity() - length(); }
 
 
 	// Visualizing
 
 /// Retrieving the front element without changing the queue
-int QueueArr::front() {
+int QueueArr::front() const {
 	if (isEmpty()) {
 		std::cout << "The queue is Empty, No front element.\n";
-		return NULL;
+		return INT_MIN;
 	}
 	return arr[_front];
 }
 
 /// Displays the whole queue
-void QueueArr::print() {
+void QueueArr::print() const {
 	std::cout << "   [";
 	if (isEmpty()) std::cout << "]\n";
 	else{
