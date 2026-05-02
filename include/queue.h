@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <optional>
+#include <climits>
 #include "node.h"
 
 typedef struct {
@@ -28,8 +28,8 @@ void deleteQueue(queue_ll** q);
 // =================== Queue Array part ==================
 class QueueArr {
 private:
-	const int size;			// The size of the array, ethier user-passed parameter or default is 10
-	int* arr;				// intialized here as a pointer as the size will be determined in the constructor
+	const int size;			// The size of the array, either user-passed parameter or default is 10
+	int* arr;				// initialized here as a pointer as the size will be determined in the constructor
 	int _front, rear;
 public:
 	// constructors
@@ -37,22 +37,26 @@ public:
 	QueueArr(int size);
 	~QueueArr();
 
+	// deep copying logic
+	QueueArr(const QueueArr& other);
+	QueueArr& operator=(const QueueArr& other);
+
 	// check helpers
-	bool isEmpty();
-	bool isFull();
+	bool isEmpty() const;
+	bool isFull() const;
 
 	// main queue functions
 	void enqueue(int value);
 	int dequeue();				// Dequeue: front() + pop()
 	void clear();
-	int length();			// Returns the current length of the queue
-	int capacity();			// Returns the total size of the queue
-	int available();		// Returns the number of available spaces in the queue
+	int length() const;			// Returns the current length of the queue
+	int capacity() const;			// Returns the total size of the queue
+	int available() const;		// Returns the number of available spaces in the queue
 
 	// Displays the whole queue
-	void print();
+	void print() const;
 
 	//retrieve without changing the queue
-	int front();
+	int front() const;
 
 };
