@@ -17,25 +17,24 @@ int main(){
 	for (int i = 1; i <= 10; ++i) enqueue(qll, 10 * i);
 	cout << "After enqueue: ";
 	display(qll); //should be {100, 90, 80, 70, 60, 50, 40, 30, 20, 10}
-
+	cout << "Size: " << size(qll) << '\n';
 	cout << "dequeued " << dequeue(qll) << endl;
-	cout << "after 1 dequeue: ";
+	cout << "After 1 dequeue: ";
 	display(qll); //should be {90, 80, 70, 60, 50, 40, 30, 20, 10}
-
-	enqueue(qll, 100);
-	for (int i = 1; i <= 10; ++i) { 
-		cout << "dequeued " << dequeue(qll) << endl;
-	}
+	cout << "Size: " << size(qll) << '\n';
+	clear(qll);
+	cout << "After clear: " << '\n';
+	cout << "Size: " << size(qll) << '\n';
 
 	cout << "Attempting dequeue with queue empty: ";
 	dequeue(qll); //should say that queue is empty
 
 	deleteQueue(&qll); //should delete queue and set qll to NULL
-
+	cout << "After Delete: ";
+	cout << "Size: " << size(qll) << '\n';
 	cout << "Attmepting display after deleting queue: ";
 	display(qll); //should say that queue is NULL
 	*/
-
 
 	//Queue Array--------------------------------------------------------------
 	/*

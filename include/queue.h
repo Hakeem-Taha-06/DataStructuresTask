@@ -3,13 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <climits>
 #include "node.h"
 
-typedef struct {
-	node* head;
-	node* tail;
-}queue_ll;
+typedef struct queue_ll; //implementation in header files acts as encapsulation, any other file can't access the data inside the struct
 
 queue_ll* createLLQueue();
 
@@ -20,6 +16,10 @@ int dequeue(queue_ll* q);
 bool isEmpty(queue_ll* q);
 
 int peek(queue_ll* q);
+
+int size(queue_ll* q);
+
+void clear(queue_ll* q);
 
 void display(queue_ll* q);
 

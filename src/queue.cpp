@@ -1,5 +1,11 @@
 #include "queue.h"
 
+typedef struct queue_ll{
+	node* head;
+	node* tail;
+	int size;
+};
+
 queue_ll* createLLQueue() {
 	queue_ll* q = new queue_ll(NULL, NULL); //allocate new queue_ll, initialize its values
 
@@ -29,6 +35,7 @@ void enqueue(queue_ll* q, int value) {
 	if (isEmpty(q)) { //special case: empty queue, both tail and head point at the same node
 		q->head = n;
 		q->tail = n;
+		q->size++;
 		return;
 	}
 
@@ -36,6 +43,7 @@ void enqueue(queue_ll* q, int value) {
 
 	n->next = q->head;
 	q->head = n; //head points at new node
+	q->size++;
 }
 
 int dequeue(queue_ll* q) {
@@ -51,8 +59,23 @@ int dequeue(queue_ll* q) {
 
 	delete q->head; //delete the first node
 	q->head = temp; //make the head point at the next node
-
+	q->size--;
 	return value;
+}
+
+int size(queue_ll* q) {
+	if (q == NULL) { printf("queue is NULL\n"); return -1; }//make sure we don't dereference a null ptr
+
+	return q->size;
+}
+
+void clear(queue_ll* q) {
+	if (q == NULL) { printf("queue is NULL\n"); return; }//make sure we don't dereference a null ptr
+
+	if (isEmpty(q)) { return; }
+	while (q->head != NULL) {
+		dequeue(q);
+	}
 }
 
 void display(queue_ll* q) {
