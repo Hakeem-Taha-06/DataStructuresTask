@@ -123,3 +123,33 @@ void display(stack_a* s) {
 	}
 	cout << "]" << endl;
 }
+
+void deleteStack(stack_ll** s) {
+	if (s == NULL) { printf("stack is NULL\n"); return; }//make sure we don't dereference a null ptr
+
+	node* n = (*s)->head; //start from the first node
+	node* temp = n;
+
+	delete* s; //we delete the pointer itself 
+	*s = NULL; //and set its value to NULL
+
+	//loop until the end
+	while (n != NULL) {
+		n = n->next; //move n
+		delete temp; //delete the node before it
+		temp = n;    //update temp to sync with n
+	}
+
+	std::cout << "stack deleted" << std::endl;
+}
+
+void deleteStack(stack_a** s) {
+	if (s == NULL) { printf("stack is NULL\n"); return; }//make sure we don't dereference a null ptr
+
+	delete[] (*s)->data;
+
+	delete* s;
+	*s = NULL;
+
+	std::cout << "stack deleted" << std::endl;
+}

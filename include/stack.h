@@ -37,3 +37,7 @@ int peek(stack_ll* s);
 void display(stack_ll* s);
 
 void display(stack_a* s);
+
+void deleteStack(stack_ll** s);
+
+void deleteStack(stack_a** s);

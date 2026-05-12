@@ -37,177 +37,176 @@ int main(){
 	*/
 
 	//Queue Array--------------------------------------------------------------
-	/*
-	QueueArr q;
+	//QueueArr qa;
 
-	// Initially empty
-	cout << "Initial queue: ";
-	q.print();
-	cout << "Capacity: " << q.capacity() << '\n';
-	cout << "Available space: " << q.available() << '\n';
-	cout << "length: " << q.length() << "\n===============\n\n";
+	//// Initially empty
+	//cout << "Initial queue: ";
+	//qa.print();
+	//cout << "Capacity: " << qa.capacity() << '\n';
+	//cout << "Available space: " << qa.available() << '\n';
+	//cout << "length: " << qa.length() << "\n===============\n\n";
 
-	// Enqueue elements
-	for (int i = 1; i <= q.capacity(); i++)
-		q.enqueue(i);
+	//// Enqueue elements
+	//for (int i = 1; i <= qa.capacity(); i++)
+	//	qa.enqueue(i);
 
-	cout << "After enqueue (1 then 2 ...... then 10): ";
-	q.print();
-	cout << "Capacity: " << q.capacity() << '\n';
-	cout << "Available space: " << q.available() << '\n';
-	cout << "length: " << q.length() << "\n===============\n\n";
+	//cout << "After enqueue (1 then 2 ...... then 10): ";
+	//qa.print();
+	//cout << "Capacity: " << qa.capacity() << '\n';
+	//cout << "Available space: " << qa.available() << '\n';
+	//cout << "length: " << qa.length() << "\n===============\n\n";
 
-	// Front element
-	cout << "Front: " << q.front() << "\nthe queue after front() : ";
-	q.print();
-	cout << "Available space: " << q.available() << '\n';
+	//// Front element
+	//cout << "Front: " << qa.front() << "\nthe queue after front() : ";
+	//qa.print();
+	//cout << "Available space: " << qa.available() << '\n';
 
-	// Dequeue
-	cout << "Dequeued: " << q.dequeue() << '\n';
+	//// Dequeue
+	//cout << "Dequeued: " << qa.dequeue() << '\n';
 
-	cout << "After dequeue: ";
-	q.print();
-	cout << "Capacity: " << q.capacity() << '\n';
-	cout << "Available space: " << q.available() << '\n';
-	cout << "length: " << q.length() << "\n\n===============\n";
+	//cout << "After dequeue: ";
+	//qa.print();
+	//cout << "Capacity: " << qa.capacity() << '\n';
+	//cout << "Available space: " << qa.available() << '\n';
+	//cout << "length: " << qa.length() << "\n\n===============\n";
 
-	// dequeue two elemnets
-	q.dequeue();
-	q.dequeue();
+	//// dequeue two elemnets
+	//qa.dequeue();
+	//qa.dequeue();
 
-	cout << "After two dequeue: ";
-	q.print();
-	cout << "Capacity: " << q.capacity() << '\n';
-	cout << "Available space: " << q.available() << '\n';
-	cout << "length: " << q.length() << "\n\n===============\n";
+	//cout << "After two dequeue: ";
+	//qa.print();
+	//cout << "Capacity: " << qa.capacity() << '\n';
+	//cout << "Available space: " << qa.available() << '\n';
+	//cout << "length: " << qa.length() << "\n\n===============\n";
 
-	// clearing the queue
-	q.clear();
-	cout << "clear() is called\n";
-	cout << "the queue after clear(): ";
-	q.print();
+	//// clearing the queue
+	//qa.clear();
+	//cout << "clear() is called\n";
+	//cout << "the queue after clear(): ";
+	//qa.print();
 
-	// Try dequeue on empty
-	cout << "Dequeue on empty: " << q.dequeue() << '\n';
-	q.print();
-	cout << "Available space: " << q.available() << '\n';
-	cout << "Capacity: " << q.capacity() << '\n';
-	cout << "length: " << q.length() << "\n\n===============\n";
+	//// Try dequeue on empty
+	//cout << "Dequeue on empty: " << qa.dequeue() << '\n';
+	//qa.print();
+	//cout << "Available space: " << qa.available() << '\n';
+	//cout << "Capacity: " << qa.capacity() << '\n';
+	//cout << "length: " << qa.length() << "\n\n===============\n";
+	//
+
+	//// making a queue of given size
+	//cout << " --------------- testing a queue of given size --------------\n";
+	//QueueArr qa2(3);
+
+	//// Initially empty
+	//cout << "Initial queue: ";
+	//qa2.print();
+	//cout << "Capacity: " << qa2.capacity() << '\n';
+	//cout << "Available space: " << qa2.available() << '\n';
+	//cout << "length: " << qa2.length() << "\n===============\n\n";
+
+	//// enqueing
+	//qa2.enqueue(10); qa2.enqueue(20); qa2.enqueue(30); qa2.enqueue(40);
+	//cout << "queue after enqueing (10, 20, 30, 40): ";
+	//qa2.print();
+	//cout << "Available space: " << qa2.available() << '\n';
+	//cout << "Capacity: " << qa2.capacity() << '\n';
+	//cout << "length: " << qa2.length() << "\n===============\n\n";
+
+	//// queue of one element
+	//qa2.clear();
+	//cout << "clear() is called: the queue is empty\n";
+	//qa2.enqueue(10);
+	//cout << "queue after enqueing (10): ";
+	//qa2.print();
+	//cout << "Available space: " << qa2.available() << '\n';
+	//cout << "Capacity: " << qa2.capacity() << '\n';
+	//cout << "length: " << qa2.length() << "\n===============\n\n";
 	
-
-	// making a queue of given size
-	cout << " --------------- testing a queue of given size --------------\n";
-	QueueArr q2(3);
-
-	// Initially empty
-	cout << "Initial queue: ";
-	q2.print();
-	cout << "Capacity: " << q2.capacity() << '\n';
-	cout << "Available space: " << q2.available() << '\n';
-	cout << "length: " << q2.length() << "\n===============\n\n";
-
-	// enqueing
-	q2.enqueue(10); q2.enqueue(20); q2.enqueue(30); q2.enqueue(40);
-	cout << "queue after enqueing (10, 20, 30, 40): ";
-	q2.print();
-	cout << "Available space: " << q2.available() << '\n';
-	cout << "Capacity: " << q2.capacity() << '\n';
-	cout << "length: " << q2.length() << "\n===============\n\n";
-
-	// queue of one element
-	q2.clear();
-	cout << "clear() is called: the queue is empty\n";
-	q2.enqueue(10);
-	cout << "queue after enqueing (10): ";
-	q2.print();
-	cout << "Available space: " << q2.available() << '\n';
-	cout << "Capacity: " << q2.capacity() << '\n';
-	cout << "length: " << q2.length() << "\n===============\n\n";
-	
-	//q2 = q;						// give error and exit the app as the two queues sizes are different
-	//q2.print();
-	*/
+	//qa2 = qa;						// give error and exit the app as the two queues sizes are different
+	//qa2.print();
 
 
 	//Stack Linkedlist Test------------------------------------------------------------
-	/*
-	stack_ll* s = createLLStack();
+	//stack_ll* sll = createLLStack();
 
-	// Initially empty
-	cout << "Initial stack: ";
-	display(s);
+	//// Initially empty
+	//cout << "Initial stack: ";
+	//display(sll);
 
-	// Push elements
-	push(s, 10);
-	push(s, 20);
-	push(s, 30);
+	//// Push elements
+	//push(sll, 10);
+	//push(sll, 20);
+	//push(sll, 30);
 
-	cout << "After pushes: ";
-	display(s);   // Expected: 30 20 10
+	//cout << "After pushes: ";
+	//display(sll);   // Expected: 30 20 10
 
-	// Peek top
-	cout << "Top element: " << peek(s) << endl; // Expected: 30
+	//// Peek top
+	//cout << "Top element: " << peek(sll) << endl; // Expected: 30
 
-	// Pop element
-	cout << "Popped: " << pop(s) << endl; // Expected: 30
+	//// Pop element
+	//cout << "Popped: " << pop(sll) << endl; // Expected: 30
 
-	cout << "After pop: ";
-	display(s);   // Expected: 20 10
+	//cout << "After pop: ";
+	//display(sll);   // Expected: 20 10
 
-	// Pop all
-	pop(s);
-	pop(s);
+	//// Pop all
+	//pop(sll);
+	//pop(sll);
 
-	cout << "After removing all: ";
-	display(s);   // Expected: Invalid
+	//cout << "After removing all: ";
+	//display(sll);   // Expected: Invalid
 
-	// Try pop on empty
-	cout << "Pop on empty: " << pop(s) << endl;
-	*/
+	//// Try pop on empty
+	//cout << "Pop on empty: " << pop(sll) << endl;
+
+	//deleteStack(&sll);
 
 	//Stack Array Test------------------------------------------------------------
 	//cout << "=== Test 1: Create & display empty stack ===" << endl;
-	//stack_a* s = createArrayStack(5);
-	//display(s);                              // Expected: []
-	//cout << "isEmpty: " << (isEmpty(s) ? "true" : "false") << endl; // Expected: true
+	//stack_a* sa = createArrayStack(5);
+	//display(sa);                              // Expected: []
+	//cout << "isEmpty: " << (isEmpty(sa) ? "true" : "false") << endl; // Expected: true
 
 	//cout << "\n=== Test 2: Push elements ===" << endl;
-	//push(s, 10);
-	//push(s, 20);
-	//push(s, 30);
-	//display(s);                              // Expected: [ 30 20 10 ]
-	//cout << "isEmpty: " << (isEmpty(s) ? "true" : "false") << endl; // Expected: false
+	//push(sa, 10);
+	//push(sa, 20);
+	//push(sa, 30);
+	//display(sa);                              // Expected: [ 30 20 10 ]
+	//cout << "isEmpty: " << (isEmpty(sa) ? "true" : "false") << endl; // Expected: false
 
 	//cout << "\n=== Test 3: Peek top ===" << endl;
-	//cout << "Top: " << peek(s) << endl;      // Expected: 30
+	//cout << "Top: " << peek(sa) << endl;      // Expected: 30
 
 	//cout << "\n=== Test 4: Pop elements ===" << endl;
-	//cout << "Popped: " << pop(s) << endl;    // Expected: 30
-	//cout << "Popped: " << pop(s) << endl;    // Expected: 20
-	//display(s);                              // Expected: [ 10 ]
+	//cout << "Popped: " << pop(sa) << endl;    // Expected: 30
+	//cout << "Popped: " << pop(sa) << endl;    // Expected: 20
+	//display(sa);                              // Expected: [ 10 ]
 
 	//cout << "\n=== Test 5: Fill to capacity ===" << endl;
-	//push(s, 40);
-	//push(s, 50);
-	//push(s, 60);
-	//push(s, 70);
-	//display(s);                              // Expected: [ 70 60 50 40 10 ]
-	//push(s, 80);                             // Expected: overflow message (stack is full)
+	//push(sa, 40);
+	//push(sa, 50);
+	//push(sa, 60);
+	//push(sa, 70);
+	//display(sa);                              // Expected: [ 70 60 50 40 10 ]
+	//push(sa, 80);                             // Expected: overflow message (stack is full)
 
 	//cout << "\n=== Test 6: Pop until empty ===" << endl;
-	//while (!isEmpty(s)) cout << "Popped: " << pop(s) << endl;
-	//display(s);                              // Expected: []
+	//while (!isEmpty(sa)) cout << "Popped: " << pop(sa) << endl;
+	//display(sa);                              // Expected: []
 
 	//cout << "\n=== Test 7: Underflow - pop & peek on empty ===" << endl;
-	//pop(s);                                  // Expected: underflow message
-	//peek(s);                                 // Expected: empty message
+	//pop(sa);                                  // Expected: underflow message
+	//peek(sa);                                 // Expected: empty message
 
 	//cout << "\n=== Test 8: Invalid creation (size <= 0) ===" << endl;
 	//stack_a* bad = createArrayStack(-1);     // Expected: error message, returns NULL
 	//(void)bad;
 
 	//cout << "\n=== Test 9: Delete stack ===" << endl;            
-	//display(s);                              // Expected: "Stack is NULL"
+	//display(sa);                              // Expected: "Stack is NULL"
+	//deleteStack(&sa);
 
 
 	return 0;
