@@ -53,7 +53,7 @@ void insertAtEnd(linkedList* l, int value) {
 	l->size += 1;
 }
 
-void deletebyIndex(linkedList* l, int index) {
+void deleteByIndex(linkedList* l, int index) {
 	if (l == NULL) { printf("list is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	//create two pointers to track two nodes at the same time

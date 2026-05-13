@@ -18,7 +18,9 @@ void insertAtHead(linkedList* l, int value);
 
 void insertAtEnd(linkedList* l, int value);
 
-void deleteByIndex(linkedList* l, int value);
+void deleteByIndex(linkedList* l, int index);
+
+void deleteValue(linkedList* l, int value);
 
 void display(linkedList* l);
 
