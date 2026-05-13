@@ -53,7 +53,7 @@ void insertAtEnd(linkedList* l, int value) {
 	l->size += 1;
 }
 
-void deleteValue(linkedList* l, int index) {
+void deletebyIndex(linkedList* l, int index) {
 	if (l == NULL) { printf("list is NULL\n"); return; }//make sure we don't dereference a null ptr
 
 	//create two pointers to track two nodes at the same time
@@ -88,6 +88,40 @@ void deleteValue(linkedList* l, int index) {
 
 	printf("couldn't find element at index %i\n", index);
 	
+}
+
+//second fix: deleteValue should take a value instead of an index, i was aware this was the intended behaviour, but i couldn't decide whether i should delete
+//            only the first element that is found from the beginning of the list containing that value, or delete all elements that contain that value one by one
+//            until the end of the list, this is why i chose the less ambiguous option by deleting by index
+
+//i will implement the first option because it is easier
+void deleteValue(linkedList* l, int value) {
+	if (l == NULL) { printf("list is NULL");return; }
+	
+	node* prev = NULL;
+	node* curr = l->head;
+	
+	while (curr != NULL) {
+		if (curr->data == value) {
+			if (prev == NULL) { //if it's the first node
+				l->head = curr->next; //the head will point at whatever the curr node was pointing at
+			}
+			else {//if it's in the middle
+				prev->next = curr->next; //then prev != NULL, and we can dereference it and set its next to whatever curr was pointing at
+			}
+
+			if (curr == l->rear) { //if it's the last node
+				l->rear = prev; //the we can make the rear point at the prev node
+			}
+
+			printf("deleted of value %i\n", curr->data);
+			delete curr; //in all cases we delete the curr node
+			curr = NULL;
+			return;
+		}
+		prev = curr; //prev moves one step forward
+		curr = curr->next; //curr moves one step forward, now prev is directly behind it
+	}
 }
 
 void display(linkedList* l) {

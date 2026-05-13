@@ -41,8 +41,10 @@ void enqueue(queue_ll* q, int value) {
 
 	//general case: the next of the new node points at whatever the head was pointing at (could be NULL or next node)
 
-	n->next = q->head;
-	q->head = n; //head points at new node
+	//first fix: enqueue at tail instead of head, this one should've been obvious...
+	n->next = NULL;
+	q->tail->next = n; //last node points at new node
+	q->tail = n; //tail also points at new node
 	q->size++;
 }
 
